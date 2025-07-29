@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { nper, pmt } from "financial";
+import SavingsChart from "./SavingsChart";
 
 const LoanStimulator = ({ setIsCalculateToggled, debts }: any) => {
   const [consolidatedAPR, setConsolidatedAPR] = useState<number>(8.0);
@@ -173,10 +174,38 @@ const LoanStimulator = ({ setIsCalculateToggled, debts }: any) => {
             </div>
           </span>
         </div>
+        <div className="mt-4 flex gap-4">
+          <div className="flex-1 border-2 p-2">
+            <SavingsChart data={calulatedAmount} />
+          </div>
+          <div className="flex-1 flex flex-col justify-center p-4 border-2">
+            <p className="text-center font-bold text-lg mb-4">Savings Summary</p>
+            <div className="text-center">
+              <p className="text-sm font-semibold">Total Repayment Savings</p>
+              <p className={`text-xl font-bold ${
+                  calulatedAmount.totalRepaymentSavings >= 0
+                    ? "text-[#00b290]"
+                    : "text-[#ef4444]"
+                }`}>
+                ${calulatedAmount.totalRepaymentSavings.toLocaleString()}
+              </p>
+            </div>
+            <div className="text-center mt-4">
+              <p className="text-sm font-semibold">Monthly Savings</p>
+              <p className={`text-xl font-bold ${
+                  calulatedAmount.totalMonthlySavings >= 0
+                    ? "text-[#00b290]"
+                    : "text-[#ef4444]"
+                }`}>
+                ${calulatedAmount.totalMonthlySavings.toLocaleString()}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="border-l-2 border-r-2 border-b-2 flex">
         <div className="border-r-2  flex-1">
-          <p className="justify-between p-3 flex block">
+          <p className="justify-between p-3 flex">
             New Total Repayment
             <span className="text-[#06a9db] text-lg font-bold">
               ${calulatedAmount.newTotalRepayment.toLocaleString()}
@@ -192,7 +221,7 @@ const LoanStimulator = ({ setIsCalculateToggled, debts }: any) => {
                 calulatedAmount.totalRepaymentSavings >= 0
                   ? "bg-[#f2fbf9]"
                   : "bg-[#fef2f2]"
-              } p-3 font-semibold justify-between flex block`}>
+              } p-3 font-semibold justify-between flex`}>
             Total Repayment Savings
             <span className={`${
                 calulatedAmount.totalRepaymentSavings >= 0
