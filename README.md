@@ -1,4 +1,18 @@
-# Debt-calculator-SuperMoney
+# Debt Consolidation Savings Calculator
+
+This tool helps you evaluate the potential benefits of consolidating your debts. It allows you to input details about your current debts (balances, interest rates, minimum payments) and then compare them against a potential consolidation loan.
+
+
+## What it Does
+
+*   **Analyzes Current Debts:** Input details like balances, interest rates, and monthly payments for your various debts (e.g., credit cards, personal loans).
+*   **Estimates Potential Savings:** Compares your current debt scenario with a consolidated loan to show potential interest savings over time.
+*   **Calculates New Monthly Payments:** Provides an estimate of your single, lower monthly payment after consolidation.
+*   **Compares Scenarios:** Helps you experiment with different repayment terms to find a consolidation plan that fits your budget and financial goals.
+*   **Simplifies Debt Management:** Visualizes the benefits of consolidating multiple debts into a single, easier-to-manage loan.
+
+By using this calculator, you can gain clarity on your financial situation and make informed decisions about whether debt consolidation is the right path for you.
+
 
 
 ## Available Scripts
