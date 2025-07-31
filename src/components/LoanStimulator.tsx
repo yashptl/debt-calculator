@@ -119,23 +119,24 @@ const LoanStimulator = ({ setIsCalculateToggled, debts }: any) => {
         <ArrowBackIcon />
         <p className="text-medium font-semibold">Update Your Current Debts</p>
       </button>
-      <div className="border-2 p-5 grid gap-y-2 grid-rows-3 w-full ">
+      <div className="border-2 p-4 sm:p-5 grid gap-4 w-full justify-center">
         <div>
-          <p className="font-semibold">Configure Your Consolidated Loan</p>
+          <p className="font-semibold text-lg">Configure Your Consolidated Loan</p>
           <p className="text-sm text-gray-500">
             Use the slider below to simulate the new APR and loan term.
           </p>
         </div>
-        <div className="grid grid-cols-8 mb-4">
-          <span className="text-sm font-bold text-gray-500 col-span-1">
-            Desired APR
-            <p className="text-2xl font-extrabold text-[#06a9db]">
-              {`${consolidatedAPR.toFixed(2)}%`}
+        
+        <div className="grid grid-cols-1 md:grid-cols-8 gap-4 mb-4">
+          <div className="md:col-span-3">
+            <p className="text-sm font-bold text-gray-500">
+              Desired APR
+              <span className="block text-2xl font-extrabold text-[#06a9db]">
+                {`${consolidatedAPR.toFixed(2)}%`}
+              </span>
             </p>
-          </span>
-          <span className="text-sm font-bold text-gray-500 col-span-5 pt-2">
             <input
-              className="w-full"
+              className="w-full mt-2"
               name="consolidatedAPR"
               type="range"
               min="4"
@@ -144,22 +145,21 @@ const LoanStimulator = ({ setIsCalculateToggled, debts }: any) => {
               step="0.05"
               onChange={(e) => handleLoanChange(e)}
             />
-            <div className="-mt-2 flex w-full justify-between">
-              <span className="text-sm text-gray-600">4%</span>
-              <span className="text-sm text-gray-600">36%</span>
+            <div className="flex justify-between text-sm text-gray-600 mt-1">
+              <span>4%</span>
+              <span>36%</span>
             </div>
-          </span>
-        </div>
-        <div className="grid grid-cols-8">
-          <p className="text-sm font-bold text-gray-500">
-            Desired Loan Term
-            <p className="text-2xl font-extrabold text-[#06a9db]">
-              {loanTerm} months
+          </div>
+          
+          <div className="md:col-span-5">
+            <p className="text-sm font-bold text-gray-500">
+              Desired Loan Term
+              <span className="block text-2xl font-extrabold text-[#06a9db]">
+                {loanTerm} months
+              </span>
             </p>
-          </p>
-          <span className="text-sm font-bold text-gray-500 col-span-5 pt-2">
             <input
-              className="w-full"
+              className="w-full mt-2"
               name="loanTerm"
               type="range"
               min="12"
@@ -168,17 +168,18 @@ const LoanStimulator = ({ setIsCalculateToggled, debts }: any) => {
               step="1"
               onChange={(e) => handleLoanChange(e)}
             />
-            <div className="-mt-2 flex w-full justify-between">
-              <span className="text-sm text-gray-600">12 mo.</span>
-              <span className="text-sm text-gray-600">60 mo.</span>
+            <div className="flex justify-between text-sm text-gray-600 mt-1">
+              <span>12 mo.</span>
+              <span>60 mo.</span>
             </div>
-          </span>
+          </div>
         </div>
-        <div className="mt-4 flex gap-4">
-          <div className="flex-1 border-2 p-2">
+        
+        <div className="mt-4 flex flex-col lg:flex-row gap-4">
+          <div className="lg:flex-1 border-2 p-2">
             <SavingsChart data={calulatedAmount} />
           </div>
-          <div className="flex-1 flex flex-col justify-center p-4 border-2">
+          <div className="lg:flex-1 flex flex-col justify-center p-4 border-2">
             <p className="text-center font-bold text-lg mb-4">Savings Summary</p>
             <div className="text-center">
               <p className="text-sm font-semibold">Total Repayment Savings</p>
@@ -203,62 +204,64 @@ const LoanStimulator = ({ setIsCalculateToggled, debts }: any) => {
           </div>
         </div>
       </div>
-      <div className="border-l-2 border-r-2 border-b-2 flex">
-        <div className="border-r-2  flex-1">
-          <p className="justify-between p-3 flex">
-            New Total Repayment
-            <span className="text-[#06a9db] text-lg font-bold">
+      
+      <div className="border-l-2 border-r-2 border-b-2 flex flex-col md:flex-row">
+        <div className="border-r-0 md:border-r-2 flex-1">
+          <div className="p-3 flex justify-between">
+            <span>New Total Repayment</span>
+            <span className="text-[#06a9db] font-bold">
               ${calulatedAmount.newTotalRepayment.toLocaleString()}
             </span>
-          </p>
-          <p className="justify-between p-3 flex">
-            Current Total Payment
-            <span className="text-lg font-semibold">
+          </div>
+          <div className="p-3 flex justify-between">
+            <span>Current Total Payment</span>
+            <span className="font-semibold">
               ${calulatedAmount.currentTotalRepayment.toLocaleString()}
             </span>
-          </p>
-          <p className= {`${
+          </div>
+          <div className= {`${
                 calulatedAmount.totalRepaymentSavings >= 0
                   ? "bg-[#f2fbf9]"
                   : "bg-[#fef2f2]"
-              } p-3 font-semibold justify-between flex`}>
-            Total Repayment Savings
+              } p-3 font-semibold flex justify-between`}>
+            <span>Total Repayment Savings</span>
             <span className={`${
                 calulatedAmount.totalRepaymentSavings >= 0
                   ? "text-[#00b290]"
                   : "text-[#ef4444]"
-              } text-xl font-bold`}>
+              } font-bold`}>
               ${calulatedAmount.totalRepaymentSavings.toLocaleString()}
             </span>
-          </p>
+          </div>
         </div>
+        
         <div className="flex-1">
-          <p className="justify-between p-3 flex">
-            New Monthly Payment
-            <span className="text-[#06a9db] text-lg font-bold">
+          <div className="p-3 flex justify-between">
+            <span>New Monthly Payment</span>
+            <span className="text-[#06a9db] font-bold">
               ${calulatedAmount.newMonthlyPayment.toLocaleString()}
             </span>
-          </p>
-          <p className="justify-between p-3 flex">
-            Current Monthly Payment
-            <span className="text-lg font-semibold">
+          </div>
+          <div className="p-3 flex justify-between">
+            <span>Current Monthly Payment</span>
+            <span className="font-semibold">
               ${calulatedAmount.currentMonthlyPayment.toLocaleString()}
             </span>
-          </p>
-          <p className={`${
+          </div>
+          <div className={`${
                 calulatedAmount.totalMonthlySavings >= 0
                   ? "bg-[#f2fbf9]"
                   : "bg-[#fef2f2]"
-              } font-semibold p-3 justify-between flex`}>
-            Total Monthly Savings
+              } font-semibold p-3 flex justify-between`}>
+            <span>Total Monthly Savings</span>
             <span className={`${
                 calulatedAmount.totalMonthlySavings >= 0
                   ? "text-[#00b290]"
                   : "text-[#ef4444]"
-              } text-xl font-bold`}>
+              } font-bold`}>
               ${calulatedAmount.totalMonthlySavings.toLocaleString()}
             </span>
-          </p>
+          </div>
         </div>
       </div>
     </div>

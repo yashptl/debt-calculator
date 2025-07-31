@@ -10,11 +10,11 @@ const Calculator = () => {
   const [isCalculateToggled, setIsCalculateToggled] = useState(false);
 
   return (
-    <div className="debt-calculator p-14">
-      <h1 className="text-3xl font-semibold pb-2">
+    <div className="debt-calculator p-4 sm:p-6 md:p-8 lg:p-14">
+      <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold pb-2">
         Debt Consolidation Saving Calculator
       </h1>
-      <p className="text-gray-500 pb-5">
+      <p className="text-gray-500 pb-5 text-sm sm:text-base">
         Enter the details of your current unsecured debt and see how much you
         may be able to save after consolidating the debts into a single loan.
         Only include credit card debt, medical debt, personal loan debt, and

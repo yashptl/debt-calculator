@@ -87,7 +87,7 @@ const SavingsChart: React.FC<SavingsChartProps> = ({ data }) => {
   };
 
   return (
-    <div style={{ height: '300px' }}>
+    <div className="h-[200px] xs:h-[230px] sm:h-[280px] md:h-[300px]">
       <Bar options={options} data={chartData} />
     </div>
   );

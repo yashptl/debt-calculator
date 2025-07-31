@@ -33,19 +33,11 @@ const DebtForm = ({ setIsCalculateToggled, debts, setDebts }: any) => {
   return (
     <div>
       <p className="font-semibold pb-3">ENTER YOUR CURRENT DEBTS</p>
-      <div className="grid grid-cols-4">
-        <p className="col-span-1 text-sm font-semibold text-gray-600">
-          DEBT NAME
-        </p>
-        <p className="col-span-1 text-sm font-semibold text-gray-600">
-          REMAINING DEBT AMOUNT
-        </p>
-        <p className="col-span-1 text-sm font-semibold text-gray-600">
-          CURRENT APR
-        </p>
-        <p className="col-span-1 text-sm font-semibold text-gray-600">
-          CURRENT MONTHLY PAYMENT
-        </p>
+      <div className="hidden md:grid md:grid-cols-4">
+        <p className="text-sm font-semibold text-gray-600">DEBT NAME</p>
+        <p className="text-sm font-semibold text-gray-600">REMAINING DEBT AMOUNT</p>
+        <p className="text-sm font-semibold text-gray-600">CURRENT APR</p>
+        <p className="text-sm font-semibold text-gray-600">CURRENT MONTHLY PAYMENT</p>
       </div>
       {debts?.length > 0 &&
         debts.map((debt: any, index: number) => (
@@ -57,25 +49,29 @@ const DebtForm = ({ setIsCalculateToggled, debts, setDebts }: any) => {
             removeDebt={removeDebt}
           />
         ))}
-      <button
-        className="text-[#06a9db] flex items-center mt-3"
-        onClick={addDebt}
-      >
-        <AddIcon />
-        <p className="text-sm font-semibold">Add Another Debt</p>
-      </button>
-      <button
-        className="w-full text-white bg-[#06a9db] mt-5 py-3 font-semibold text-lg"
-        onClick={() => {
-          let lastDebt = debts.slice(-1)[0];
+      <div className="flex flex-col gap-4 mt-5">
+        <div className="flex justify-start">
+          <button
+            className="text-[#06a9db] flex items-center"
+            onClick={addDebt}
+          >
+            <AddIcon />
+            <p className="text-sm font-semibold">Add Another Debt</p>
+          </button>
+        </div>
+        <button
+          className="text-white bg-[#06a9db] w-full py-3 px-6 font-semibold text-base sm:text-lg rounded"
+          onClick={() => {
+            let lastDebt = debts.slice(-1)[0];
           //this is to check if all the fields are complete or not
-          lastDebt.name && lastDebt.amount && lastDebt.apr && lastDebt.payment
-            ? setIsCalculateToggled(true)
-            : alert("please complete the input debt feild calculate");
-        }}
-      >
-        Calculate Savings
-      </button>
+            lastDebt.name && lastDebt.amount && lastDebt.apr && lastDebt.payment
+              ? setIsCalculateToggled(true)
+              : alert("Please complete all debt fields to calculate savings");
+          }}
+        >
+          Calculate Savings
+        </button>
+      </div>
     </div>
   );
 };
