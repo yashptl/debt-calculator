@@ -119,7 +119,7 @@ const LoanStimulator = ({ setIsCalculateToggled, debts }: any) => {
         <ArrowBackIcon />
         <p className="text-medium font-semibold">Update Your Current Debts</p>
       </button>
-      <div className="border-2 p-4 sm:p-5 grid gap-4 w-full justify-center">
+      <div className="border-2 p-4 sm:p-5 grid gap-4 w-full max-md:justify-center">
         <div>
           <p className="font-semibold text-lg">Configure Your Consolidated Loan</p>
           <p className="text-sm text-gray-500">
