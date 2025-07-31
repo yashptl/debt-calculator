@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/debt-calculator/static/css/main.eb0282ba.css",
-    "main.js": "/debt-calculator/static/js/main.7633d754.js",
+    "main.css": "/debt-calculator/static/css/main.342f33fd.css",
+    "main.js": "/debt-calculator/static/js/main.f4708e38.js",
     "static/js/453.1a5e5282.chunk.js": "/debt-calculator/static/js/453.1a5e5282.chunk.js",
     "index.html": "/debt-calculator/index.html",
-    "main.eb0282ba.css.map": "/debt-calculator/static/css/main.eb0282ba.css.map",
-    "main.7633d754.js.map": "/debt-calculator/static/js/main.7633d754.js.map",
+    "main.342f33fd.css.map": "/debt-calculator/static/css/main.342f33fd.css.map",
+    "main.f4708e38.js.map": "/debt-calculator/static/js/main.f4708e38.js.map",
     "453.1a5e5282.chunk.js.map": "/debt-calculator/static/js/453.1a5e5282.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eb0282ba.css",
-    "static/js/main.7633d754.js"
+    "static/css/main.342f33fd.css",
+    "static/js/main.f4708e38.js"
   ]
 }
